@@ -17,6 +17,11 @@
   <nav class="nav">
     <div class="nav-content">
       <a href="#home" class="logo">Naman Shetty</a>
+      <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
@@ -247,5 +252,23 @@
       once: true
     });
   </script>
+  <script>
+// Hamburger menu toggle for mobile
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.querySelector('.nav-links');
+  var navToggle = document.querySelector('.nav-toggle');
+  if (navLinks && navToggle) {
+    navToggle.addEventListener('click', function(e) {
+      navLinks.classList.toggle('open');
+    });
+    // Optional: close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+});
+</script>
 </body>
 </html>
